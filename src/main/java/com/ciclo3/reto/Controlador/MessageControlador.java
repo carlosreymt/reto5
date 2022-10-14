@@ -11,6 +11,7 @@ package com.ciclo3.reto.Controlador;
 
 import com.ciclo3.reto.Entidades.Message;
 import com.ciclo3.reto.Servicio.MessageServicio;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
@@ -30,6 +31,7 @@ public class MessageControlador {
     }
 
     @PostMapping("/api/Message/save")
+    @ResponseStatus(HttpStatus.CREATED)
     public Message save (@RequestBody Message message){
         return servicio.GuardarMessage(message);
     }

@@ -11,6 +11,7 @@ package com.ciclo3.reto.Controlador;
 
 import com.ciclo3.reto.Entidades.Lib;
 import com.ciclo3.reto.Servicio.LibServicio;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
@@ -29,6 +30,7 @@ public class LibControlador {
     }
 
     @PostMapping("/api/Lib/save")
+    @ResponseStatus(HttpStatus.CREATED)
     public Lib save (@RequestBody Lib lib){
         return servicio.GuardarLib(lib);
     }

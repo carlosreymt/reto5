@@ -11,6 +11,7 @@ package com.ciclo3.reto.Controlador;
 
 import com.ciclo3.reto.Entidades.Reservation;
 import com.ciclo3.reto.Servicio.ReservationServicio;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
@@ -30,6 +31,7 @@ public class ReservationControlador {
     }
 
     @PostMapping("/api/Reservation/save")
+    @ResponseStatus(HttpStatus.CREATED)
     public Reservation save (@RequestBody Reservation reservation){
         return servicio.GuardarReservation(reservation);
     }

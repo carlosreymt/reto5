@@ -11,6 +11,7 @@ package com.ciclo3.reto.Controlador;
 
 import com.ciclo3.reto.Entidades.Score;
 import com.ciclo3.reto.Servicio.ScoreServicio;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -28,6 +29,7 @@ public class ScoreControlador {
     }
 
     @PostMapping("/api/Score/save")
+    @ResponseStatus(HttpStatus.CREATED)
     public Score save (@RequestBody Score score){
         return servicio.GuardarScore(score);
     }

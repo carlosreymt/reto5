@@ -11,6 +11,7 @@ package com.ciclo3.reto.Controlador;
 
 import com.ciclo3.reto.Entidades.Admin;
 import com.ciclo3.reto.Servicio.AdminServicio;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
@@ -29,6 +30,7 @@ public class AdminControlador {
     }
 
     @PostMapping("/api/Admin/save")
+    @ResponseStatus(HttpStatus.CREATED)
     public Admin save (@RequestBody Admin admin){
         return servicio.GuardarAdmin(admin);
     }

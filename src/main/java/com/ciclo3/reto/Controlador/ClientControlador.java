@@ -11,6 +11,7 @@ package com.ciclo3.reto.Controlador;
 
 import com.ciclo3.reto.Entidades.Client;
 import com.ciclo3.reto.Servicio.ClientServicio;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
@@ -29,6 +30,7 @@ public class ClientControlador {
     }
 
     @PostMapping("/api/Client/save")
+    @ResponseStatus(HttpStatus.CREATED)
     public Client save (@RequestBody Client client){
         return servicio.GuardarClient(client);
     }

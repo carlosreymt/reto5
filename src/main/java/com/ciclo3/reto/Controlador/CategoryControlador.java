@@ -11,6 +11,7 @@ package com.ciclo3.reto.Controlador;
 
 import com.ciclo3.reto.Entidades.Category;
 import com.ciclo3.reto.Servicio.CategoryServicio;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
@@ -29,6 +30,7 @@ public class CategoryControlador {
     }
 
     @PostMapping("/api/Category/save")
+    @ResponseStatus(HttpStatus.CREATED)
     public Category save (@RequestBody Category category){
         return servicio.GuardarCategory(category);
     }
