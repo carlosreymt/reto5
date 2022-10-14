@@ -1,17 +1,17 @@
-package com.ciclo3.reto.Servicios;
+package com.ciclo3.reto.Servicio;
 
 import com.ciclo3.reto.Entidades.Category;
-import com.ciclo3.reto.Repositorio.categoryRepositorio;
+import com.ciclo3.reto.Repositorio.CategoryRepositorio;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class categoryServicio {
-    private categoryRepositorio repositorio;
+public class CategoryServicio {
+    private CategoryRepositorio repositorio;
 
-    public categoryServicio(categoryRepositorio repositorio){
+    public CategoryServicio(CategoryRepositorio repositorio){
         this.repositorio = repositorio;
     }
 
@@ -21,7 +21,7 @@ public class categoryServicio {
     }
 
     //Consultar una categoria por ID
-    public Optional<Category> buscarCategory(String id){
+    public Optional<Category> buscarCategory(int id){
         return repositorio.findById(id);
     }
 

@@ -1,19 +1,17 @@
 package com.ciclo3.reto.Controlador;
 
 import com.ciclo3.reto.Entidades.Category;
-import com.ciclo3.reto.Servicios.categoryServicio;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import com.ciclo3.reto.Servicio.CategoryServicio;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-public class categoryControlador {
-    private categoryServicio servicio;
+public class CategoryControlador {
+    private CategoryServicio servicio;
 
-    public categoryControlador(categoryServicio servicio){
+    public CategoryControlador(CategoryServicio servicio){
         this.servicio = servicio;
     }
 
@@ -25,6 +23,11 @@ public class categoryControlador {
     @PostMapping("/api/Category/save")
     public Category save (@RequestBody Category category){
         return servicio.GuardarCategory(category);
+    }
+
+    @GetMapping("/api/Category/{id}")
+    public Optional<Category> buscarCategory(@PathVariable("id") int id){
+        return servicio.buscarCategory(id);
     }
 
 }

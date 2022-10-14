@@ -16,8 +16,16 @@ public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(name = "name", length = 45, nullable = false, unique = false)
     private String name;
+    @Column(name="description", length = 250, nullable = false, unique = false)
     private String description;
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "category")
+    @JsonIgnoreProperties("category")
+    private List<Lib> libs;
+
+    // crear constructores, getter and setters
+
 
     public Category() {
     }
@@ -70,11 +78,4 @@ public class Category {
                 ", libs=" + libs +
                 '}';
     }
-
-    //desde aca Libs
-@OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "category")
-@JsonIgnoreProperties("category")
-private List<Lib> libs;
-
-
 }
