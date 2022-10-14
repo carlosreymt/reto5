@@ -1,11 +1,17 @@
 package com.ciclo3.reto.Controlador;
 
-import com.ciclo3.reto.Entidades.Category;
+/**
+ * @Author
+ * Juan Diego Arenas Cuellar	juan.arenas.mt@usa.edu.co
+ * Carlos Alberto Rey Ardila	carlos.rey.mt@usa.edu.co
+ * Edgar Mauricio Abaunza Pinzon	edgar.abaunza.mt@usa.edu.co
+ * Darly Fernanda Sandoval Plazas	darly.sandoval.mt@usa.edu.co
+ * Adriana Feo Osma	adriana.feo.mt@usa.edu.co
+ */
+
 import com.ciclo3.reto.Entidades.Lib;
-import com.ciclo3.reto.Servicio.CategoryServicio;
 import com.ciclo3.reto.Servicio.LibServicio;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
 
