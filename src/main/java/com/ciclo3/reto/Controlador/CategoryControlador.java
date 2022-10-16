@@ -40,4 +40,12 @@ public class CategoryControlador {
         return servicio.buscarCategory(id);
     }
 
+    @PutMapping("/api/Category/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Category update(@RequestBody Category category){ return servicio.update(category);}
+
+    @DeleteMapping("/api/Category/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean deleteCategory(@PathVariable("id") int id){return servicio.delete(id);}
+
 }

@@ -9,6 +9,7 @@ package com.ciclo3.reto.Controlador;
  * Adriana Feo Osma	adriana.feo.mt@usa.edu.co
  */
 
+import com.ciclo3.reto.Entidades.Category;
 import com.ciclo3.reto.Entidades.Client;
 import com.ciclo3.reto.Servicio.ClientServicio;
 import org.springframework.http.HttpStatus;
@@ -24,6 +25,7 @@ public class ClientControlador {
         this.servicio = servicio;
     }
 
+    //Reto 3
     @GetMapping("/api/Client/all")
     public List<Client> listaClient(){
         return servicio.listaClient();
@@ -39,4 +41,14 @@ public class ClientControlador {
     public Optional<Client> buscarCategory(@PathVariable("id") int id){
         return servicio.buscarClient(id);
     }
+
+    //Reto 4
+    @PutMapping("/api/Client/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Client update(@RequestBody Client client){ return servicio.update(client);}
+
+    @DeleteMapping("/api/Client/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(@PathVariable("id") int id){return servicio.delete(id);}
+
 }

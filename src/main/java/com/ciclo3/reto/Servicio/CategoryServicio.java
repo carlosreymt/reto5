@@ -43,4 +43,46 @@ public class CategoryServicio {
         }
     }
 
+    //Actualizar Categoria
+    public Category update(Category category){
+        if(category.getId() != null)
+        {
+            Optional<Category> infoRegistro = repositorio.findById(category.getId());
+            if(infoRegistro.isPresent()){
+
+                if(category.getName() != null){
+                    infoRegistro.get().setName(category.getName());
+                }
+
+                if(category.getDescription() != null){
+                    infoRegistro.get().setDescription(category.getDescription());
+                }
+
+                if(category.getLibs() != null){
+                    infoRegistro.get().setLibs(category.getLibs());
+                }
+                repositorio.save(infoRegistro.get());
+                return infoRegistro.get();
+            }
+            else {
+                return category;
+            }
+        }
+        else {
+            return category;
+        }
+    }
+
+    //Borrar categoria
+    public boolean delete(int id){
+        boolean resultado = false;
+        Optional<Category> category = repositorio.findById(id);
+
+        if(category.isPresent()){
+            repositorio.delete(category.get());
+            resultado = true;
+        }
+        return resultado;
+    }
+
 }

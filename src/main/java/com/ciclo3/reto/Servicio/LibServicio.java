@@ -9,6 +9,8 @@ package com.ciclo3.reto.Servicio;
  * Adriana Feo Osma	adriana.feo.mt@usa.edu.co
  */
 
+import com.ciclo3.reto.Entidades.Category;
+import com.ciclo3.reto.Entidades.Client;
 import com.ciclo3.reto.Entidades.Lib;
 import com.ciclo3.reto.Repositorio.LibRepositorio;
 import org.springframework.stereotype.Service;
@@ -36,5 +38,54 @@ public class LibServicio {
         else{
             return lib;
         }
+    }
+
+    //Reto 4
+    //Actualizar
+    public Lib update(Lib lib){
+        if(lib.getId() != null)
+        {
+            Optional<Lib> infoRegistro = repositorio.findById(lib.getId());
+            if(infoRegistro.isPresent()){
+
+                if(lib.getTarget() != null){
+                    infoRegistro.get().setTarget(lib.getTarget());
+                }
+
+                if(lib.getName() != null){
+                    infoRegistro.get().setName(lib.getName());
+                }
+
+                if(lib.getDescription() != null){
+                    infoRegistro.get().setDescription(lib.getDescription());
+                }
+
+                if(lib.getCapacity() != null){
+                    infoRegistro.get().setCapacity(lib.getCapacity());
+                }
+
+                repositorio.save(infoRegistro.get());
+                return infoRegistro.get();
+            }
+            else {
+                return lib;
+            }
+        }
+        else {
+            return lib;
+        }
+    }
+
+
+    //Borrar
+    public boolean delete(int id){
+        boolean resultado = false;
+        Optional<Lib> lib = repositorio.findById(id);
+
+        if(lib.isPresent()){
+            repositorio.delete(lib.get());
+            resultado = true;
+        }
+        return resultado;
     }
 }

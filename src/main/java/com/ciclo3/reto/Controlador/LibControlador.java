@@ -9,6 +9,7 @@ package com.ciclo3.reto.Controlador;
  * Adriana Feo Osma	adriana.feo.mt@usa.edu.co
  */
 
+import com.ciclo3.reto.Entidades.Category;
 import com.ciclo3.reto.Entidades.Lib;
 import com.ciclo3.reto.Servicio.LibServicio;
 import org.springframework.http.HttpStatus;
@@ -39,4 +40,16 @@ public class LibControlador {
     public Optional<Lib> buscarLib(@PathVariable("id") int id){
         return servicio.buscarLib(id);
     }
+
+
+    //Reto 4
+    //Actualizar
+    @PutMapping("/api/Lib/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Lib update(@RequestBody Lib lib){ return servicio.update(lib);}
+
+    //Borrar
+    @DeleteMapping("/api/Lib/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(@PathVariable("id") int id){return servicio.delete(id);}
 }
