@@ -1,7 +1,7 @@
 package com.ciclo3.reto.Servicio;
 
-/**
- * @Author
+/*
+  @Author
  * Juan Diego Arenas Cuellar	juan.arenas.mt@usa.edu.co
  * Carlos Alberto Rey Ardila	carlos.rey.mt@usa.edu.co
  * Edgar Mauricio Abaunza Pinzon	edgar.abaunza.mt@usa.edu.co
@@ -38,5 +38,40 @@ public class MessageServicio {
         else{
             return message;
         }
+    }
+
+    //Reto 4
+    public Message update(Message message){
+        if(message.getIdMessage() != null)
+        {
+            Optional<Message> infoRegistro = repositorio.findById(message.getIdMessage());
+            if(infoRegistro.isPresent()){
+
+                if(message.getMessageText() != null){
+                    infoRegistro.get().setMessageText(message.getMessageText());
+                }
+
+                repositorio.save(infoRegistro.get());
+                return infoRegistro.get();
+            }
+            else {
+                return message;
+            }
+        }
+        else {
+            return message;
+        }
+    }
+
+    //Borrar
+    public boolean delete(int id){
+        boolean resultado = false;
+        Optional<Message> message = repositorio.findById(id);
+
+        if(message.isPresent()){
+            repositorio.delete(message.get());
+            resultado = true;
+        }
+        return resultado;
     }
 }

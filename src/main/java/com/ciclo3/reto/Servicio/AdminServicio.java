@@ -1,6 +1,6 @@
 package com.ciclo3.reto.Servicio;
 
-/**
+/*
  * @Author
  * Juan Diego Arenas Cuellar	juan.arenas.mt@usa.edu.co
  * Carlos Alberto Rey Ardila	carlos.rey.mt@usa.edu.co
@@ -40,6 +40,49 @@ public class AdminServicio {
         }
     }
 
+    //Reto4
+    //Actualizar
+    public Admin update(Admin admin){
+        if(admin.getIdAdmin() != null)
+        {
+            Optional<Admin> infoRegistro = repositorio.findById(admin.getIdAdmin());
+            if(infoRegistro.isPresent()){
+
+                if(admin.getEmail() != null){
+                    infoRegistro.get().setEmail(admin.getEmail());
+                }
+
+                if(admin.getPassword() != null){
+                    infoRegistro.get().setPassword(admin.getPassword());
+                }
+
+                if(admin.getName() != null){
+                    infoRegistro.get().setName(admin.getName());
+                }
+
+                repositorio.save(infoRegistro.get());
+                return infoRegistro.get();
+            }
+            else {
+                return admin;
+            }
+        }
+        else {
+            return admin;
+        }
+    }
+
+    //Borrar
+    public boolean delete(int id){
+        boolean resultado = false;
+        Optional<Admin> admin = repositorio.findById(id);
+
+        if(admin.isPresent()){
+            repositorio.delete(admin.get());
+            resultado = true;
+        }
+        return resultado;
+    }
 
 
 }

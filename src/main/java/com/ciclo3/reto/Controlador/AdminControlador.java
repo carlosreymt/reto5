@@ -1,6 +1,6 @@
 package com.ciclo3.reto.Controlador;
 
-/**
+/*
  * @Author
  * Juan Diego Arenas Cuellar	juan.arenas.mt@usa.edu.co
  * Carlos Alberto Rey Ardila	carlos.rey.mt@usa.edu.co
@@ -39,6 +39,17 @@ public class AdminControlador {
     public Optional<Admin> buscarAdmin(@PathVariable("id") int id){
         return servicio.buscarAdmin(id);
     }
+
+    //Reto 4
+    //Actualizar
+    @PutMapping("/api/Admin/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Admin update(@RequestBody Admin admin){ return servicio.update(admin);}
+
+    //Borrar
+    @DeleteMapping("/api/Admin/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(@PathVariable("id") int id){return servicio.delete(id);}
 
 
 }

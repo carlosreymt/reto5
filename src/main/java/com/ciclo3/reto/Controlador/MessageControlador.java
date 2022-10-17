@@ -1,6 +1,6 @@
 package com.ciclo3.reto.Controlador;
 
-/**
+/*
  * @Author
  * Juan Diego Arenas Cuellar	juan.arenas.mt@usa.edu.co
  * Carlos Alberto Rey Ardila	carlos.rey.mt@usa.edu.co
@@ -40,4 +40,15 @@ public class MessageControlador {
     public Optional<Message> buscarMessage(@PathVariable("id") int id){
         return servicio.buscarMessage(id);
     }
+
+    //Reto 4
+    //Actualizar
+    @PutMapping("/api/Message/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Message update(@RequestBody Message message){ return servicio.update(message);}
+
+    //Borrar
+    @DeleteMapping("/api/Message/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(@PathVariable("id") int id){return servicio.delete(id);}
 }

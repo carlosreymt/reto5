@@ -1,6 +1,6 @@
 package com.ciclo3.reto.Controlador;
 
-/**
+/*
  * @Author
  * Juan Diego Arenas Cuellar	juan.arenas.mt@usa.edu.co
  * Carlos Alberto Rey Ardila	carlos.rey.mt@usa.edu.co
@@ -9,7 +9,6 @@ package com.ciclo3.reto.Controlador;
  * Adriana Feo Osma	adriana.feo.mt@usa.edu.co
  */
 
-import com.ciclo3.reto.Entidades.Category;
 import com.ciclo3.reto.Entidades.Client;
 import com.ciclo3.reto.Servicio.ClientServicio;
 import org.springframework.http.HttpStatus;

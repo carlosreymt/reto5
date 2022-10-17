@@ -1,6 +1,6 @@
 package com.ciclo3.reto.Servicio;
 
-/**
+/*
  * @Author
  * Juan Diego Arenas Cuellar	juan.arenas.mt@usa.edu.co
  * Carlos Alberto Rey Ardila	carlos.rey.mt@usa.edu.co

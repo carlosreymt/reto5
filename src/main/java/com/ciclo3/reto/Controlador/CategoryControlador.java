@@ -1,6 +1,6 @@
 package com.ciclo3.reto.Controlador;
 
-/**
+/*
  * @Author
  * Juan Diego Arenas Cuellar	juan.arenas.mt@usa.edu.co
  * Carlos Alberto Rey Ardila	carlos.rey.mt@usa.edu.co
@@ -40,10 +40,13 @@ public class CategoryControlador {
         return servicio.buscarCategory(id);
     }
 
+    //Reto 4
+    //Actualizar
     @PutMapping("/api/Category/update")
     @ResponseStatus(HttpStatus.CREATED)
     public Category update(@RequestBody Category category){ return servicio.update(category);}
 
+    //Borrar
     @DeleteMapping("/api/Category/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean deleteCategory(@PathVariable("id") int id){return servicio.delete(id);}

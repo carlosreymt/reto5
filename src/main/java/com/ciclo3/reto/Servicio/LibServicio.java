@@ -1,6 +1,6 @@
 package com.ciclo3.reto.Servicio;
 
-/**
+/*
  * @Author
  * Juan Diego Arenas Cuellar	juan.arenas.mt@usa.edu.co
  * Carlos Alberto Rey Ardila	carlos.rey.mt@usa.edu.co
@@ -9,8 +9,6 @@ package com.ciclo3.reto.Servicio;
  * Adriana Feo Osma	adriana.feo.mt@usa.edu.co
  */
 
-import com.ciclo3.reto.Entidades.Category;
-import com.ciclo3.reto.Entidades.Client;
 import com.ciclo3.reto.Entidades.Lib;
 import com.ciclo3.reto.Repositorio.LibRepositorio;
 import org.springframework.stereotype.Service;

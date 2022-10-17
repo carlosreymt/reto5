@@ -1,6 +1,6 @@
 package com.ciclo3.reto.Controlador;
 
-/**
+/*
  * @Author
  * Juan Diego Arenas Cuellar	juan.arenas.mt@usa.edu.co
  * Carlos Alberto Rey Ardila	carlos.rey.mt@usa.edu.co
@@ -33,5 +33,11 @@ public class ScoreControlador {
     public Score save (@RequestBody Score score){
         return servicio.GuardarScore(score);
     }
+
+    //Reto 4
+    //Actualizar Score
+    @PutMapping("/api/Score/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Score update(@RequestBody Score score){ return servicio.update(score);}
 
 }
